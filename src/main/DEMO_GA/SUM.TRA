@@ -1,0 +1,27 @@
+
+
+Summary for Profit and Loss Account
+==================================
+
+Window-size=5, prediction-delay=1, pattern-delay=1
+
+Initial capital = 1.000000, transaction size = 1.000000, trans. cost = 0.010000
+no-position zone = 0.005000
+
+RMS Error = 1.907424 , 1/RMSE = 0.524267
+
+Trades: total = 12, profitable = 9, (=  75.00%), wins/losses = 3.000000
+
+Total: gains = 0.176400, losses = 0.053900, p/l = 0.122500
+
+Ave per trade: gains = 0.019600, losses = 0.017967, p/l = 0.010208
+
+Capital end period = 1.122500
+
+Maximum: gains = 0.059100, losses = 0.032200, drawdown = 0.042200
+
+Max num drawdowns 2, avg p/l to max dd = 0.241904
+
+Rate of return = 0.122500
+
+Sharp's ratio (= ave p/l / s.d p/l) = 0.358605

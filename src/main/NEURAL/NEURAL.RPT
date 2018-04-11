@@ -1,0 +1,152 @@
+10/1/1990                                                                                                              Page:  1
+PC-METRIC (C++) Version 1.0
+Complexity Report by Function for: C:\TC\BIN\FINAL\NEURON.CPP
+-------------------------------------------------------------
+
+Function                                   FT    n1    n2    N1    N2       N     N^   P/R       V         E VG1 VG2  LOC   <;>  SP
+------------------------------------------ -- ----- ----- ----- ----- ------- ------ ----- ------- --------- --- --- ---- ----- ---
+Neuron::Neuron(void )                             3     4     7     6      13     13  0.98      36        82   1   1    6     3   0
+Neuron::transfer(void )                          10     4    11     6      17     41  2.42      65       485   1   1    5     1   0
+Neuron::derivTransfer(float )                     8     4     9     6      15     32  2.13      54       323   1   1    5     2   0
+
+Number of functions in this file: 3
+
+10/1/1990                                                                                                              Page:  2
+PC-METRIC (C++) Version 1.0
+Complexity Report by Function for: C:\TC\BIN\FINAL\NETWORK.CPP
+--------------------------------------------------------------
+
+Function                                   FT    n1    n2    N1    N2       N     N^   P/R       V         E VG1 VG2  LOC   <;>  SP
+------------------------------------------ -- ----- ----- ----- ----- ------- ------ ----- ------- --------- --- --- ---- ----- ---
+Network::adjustWeights(void )                    11     4    13     7      20     46  2.30      78       752   2   2    5     3   0
+Network::allForward(void )                       13     4    22     7      29     56  1.93     119      1348   2   2   10     6   0
+Network::backwardProp(void )                      6     1    10     1      11     16  1.41      31        93   1   1    6     3   1
+Network::calcMiddleError(void )                  16    14    44    36      80    117  1.47     393      8075   3   3   12     8   1
+Network::calcOutputError(void )                  18    13    49    35      84    123  1.47     416     10084   6   6   22     8   3
+Network::atEpochEnd(void )                       10     7    18     9      27     53  1.96     110       709   2   2   10     5   1
+Network::display(void )                          15    30    81    60     141    206  1.46     774     11615   5   5   21    12   1
+Network::displayDiff(void )                      21    23    81    49     130    196  1.51     710     15876   5   5   25    17   4
+Network::displayTotalError(void )                 4     5     8     5      13     20  1.51      41        82   1   1    4     1   0
+Network::displayPerformance(unsigned long        11    11    27    18      45     76  1.69     201      1806   1   1    7     4   1
+Network::forwardPass(void )                      18    18    85    64     149    150  1.01     770     24650   7   7   26    20   3
+Network::Network(void )                           3     5     9     8      17     16  0.96      51       122   1   1    7     4   0
+Network::Network(int int )                       22    18    97    57     154    173  1.12     820     28549   8   8   38    21   4
+Network::trained(void )                           7     4     9     4      13     28  2.13      45       157   2   2    7     2   0
+Network::trainingFile(char )                     35    53   326   191     517    483  0.93    3340    210611  21  21  106    69  11
+Network::zeroTotalError(void )                    3     2     3     2       5      7  1.35      12        17   1   1    4     1   0
+
+Number of functions in this file: 16
+
+10/1/1990                                                                                                              Page:  3
+PC-METRIC (C++) Version 1.0
+Complexity Report by Function for: C:\TC\BIN\FINAL\CONNECTI.CPP
+---------------------------------------------------------------
+
+Function                                   FT    n1    n2    N1    N2       N     N^   P/R       V         E VG1 VG2  LOC   <;>  SP
+------------------------------------------ -- ----- ----- ----- ----- ------- ------ ----- ------- --------- --- --- ---- ----- ---
+Connection::adjust(void )                         8     9    15    13      28     53  1.88     114       661   1   1    9     2   0
+Connection::displaySelf(void )                    4     5     8     5      13     20  1.51      41        82   1   1    4     1   0
+Connection::feedForward(void )                    5     5     6     5      11     23  2.11      37        91   1   1    4     1   0
+Connection::set(Neuron Neuron )                   3     4     5     4       9     13  1.42      25        38   1   1    5     2   0
+Connection::setRandom(float float float )         8    13    19    13      32     72  2.25     141       562   1   1    8     5   0
+Connection::firstNeuronIs(Neuron )                7     4     9     4      13     28  2.13      45       157   2   2    8     2   0
+Connection::secondNeuronIs(Neuron )               7     4     9     4      13     28  2.13      45       157   2   2    7     2   0
+
+Number of functions in this file: 7
+
+10/1/1990                                                                                                              Page:  4
+PC-METRIC (C++) Version 1.0
+Complexity Report by Function for: C:\TC\BIN\FINAL\NEURAL.CPP
+-------------------------------------------------------------
+
+Function                                   FT    n1    n2    N1    N2       N     N^   P/R       V         E VG1 VG2  LOC   <;>  SP
+------------------------------------------ -- ----- ----- ----- ----- ------- ------ ----- ------- --------- --- --- ---- ----- ---
+main(int char )                                  37    13   113    35     148    241  1.63     835     41604   7   7   44    26   7
+
+Number of functions in this file: 1
+
+10/1/1990                                                                                                              Page:  5
+PC-METRIC (C++) Version 1.0
+Complexity Report by Function for: C:\TC\BIN\FINAL\PATTERN.CPP
+--------------------------------------------------------------
+
+Function                                   FT    n1    n2    N1    N2       N     N^   P/R       V         E VG1 VG2  LOC   <;>  SP
+------------------------------------------ -- ----- ----- ----- ----- ------- ------ ----- ------- --------- --- --- ---- ----- ---
+Pattern::getMem(int int )                        13     7    31    11      42     68  1.61     182      1854   3   3   16     7   1
+
+Number of functions in this file: 1
+
+10/1/1990
+PC-METRIC (C++) Version 1.0
+Summary Complexity Report for: C:\TC\BIN\FINAL\NEURON.RPT
+---------------------------------------------------------
+
+Unique Operators (n1):      77
+Unique Operands (n2):      128
+Total Operators (N1):     1124
+Total Operands (N2):       664
+
+Software Science Length (N):                 1788
+Estimated Software Science Length (N^):      1379
+Purity Ratio (P/R):                          0.77
+
+Software Science Volume (V):        13731
+Software Science Effort (E):      2742320
+
+Estimated Errors using Software Science (B^):      4
+Estimated Time to Develop, in hours (T^):         42
+
+
+Cyclomatic Complexity (VG1):                63
+Extended Cyclomatic Complexity (VG2):       63
+Average Cyclomatic Complexity:               2
+Average Extended Cyclomatic Complexity:      2
+
+Lines of Code (LOC):                       590
+Number of Comment Lines:                    26
+Number of Blank Lines:                      53
+Number of Executable Semi-colons (<;>):    238
+Number of Functions:                        28
+
+
+10/1/1990                                                            Page:  1
+PC-METRIC (C++) Version 1.0
+Exception Report for Functions in C:\TC\BIN\FINAL\NETWORK.CPP
+-------------------------------------------------------------
+
+Exception(s) for Function: Network::trainingFile
+  ** At 106 lines, this function is larger
+     than the standard of 60 lines
+  ** At 69 semicolons, this function is larger
+     than the standard of 50 semicolons
+  ** With a Cyclomatic Complexity of 21 this
+     function exceeds the standard of 10
+  ** With an Extended Cyclomatic Complexity of 21
+     this function exceeds the standard of 15
+  ** With an Average Maximum Span of Reference of 11
+     this function exceeds the standard of 10
+
+//I plead guilty.  This is really a dog of a function and I would like to
+//change it.  My idea would be to break the function and data files into
+//two separate processes.  One for the parameters and another
+//for the pattern data.  
+
+
+
+10/1/1990                                                            Page:  2
+PC-METRIC (C++) Version 1.0
+Exception Report for Functions in C:\TC\BIN\FINAL\CONNECTI.CPP
+--------------------------------------------------------------
+
+
+10/1/1990                                                            Page:  3
+PC-METRIC (C++) Version 1.0
+Exception Report for Functions in C:\TC\BIN\FINAL\NEURAL.CPP
+------------------------------------------------------------
+
+
+10/1/1990                                                            Page:  4
+PC-METRIC (C++) Version 1.0
+Exception Report for Functions in C:\TC\BIN\FINAL\PATTERN.CPP
+-------------------------------------------------------------
+

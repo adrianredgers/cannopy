@@ -1,0 +1,237 @@
+/* 		applic.cfg		Configuration file for running an application program (shell)  	*/
+
+/* ************************************************************************************** 	
+
+	Introduction - Shell for a Learning Trading System (LTS)
+	========================================================
+	This is an example of a configuration file for a trading system that uses an
+	algorithm that learns from examples.
+	
+	If no run-time argument is given the program looks for the default configuration 
+	file "applic.cfg".
+
+	To use a particular configuration file its name (e.g. "foo.cfg") should be given as a
+	run-time argument to the program bp.exe  
+	- you can do this by choosing the "Debug..." dialog from the Microsoft C
+	  "Options" menu and entering the configuration file name as a program argument.   
+	
+	Overview
+	========			
+	The LTS program's running parameters can be grouped into six parts:
+	
+		* training data.
+			File containing the training data.
+			Number of records to read in, number to skip over before reading.
+			File containing true prices for calculating profit and loss on responses
+			  to training examples.
+					
+		* test data.
+			File containing the test data.
+			Number of records to read in, number to skip over before reading.
+			File containing true prices for calculating profit and loss on responses
+			  to test examples.
+
+		* column format of testing and training data.
+			Number of input columns.
+			Number of output columns (if data is not windowed).
+			Total number of data columns.
+		
+		* windowing paramters for time series analysis.
+			Length of window.
+			Prediction delay.
+			Pattern delay (distance that the window is moved with each step).
+
+		* Size and cost of trading transactions, initial trading capital and no-
+			position zone.
+		
+		* names of other configuration files.
+			 Configuration file of learning algorithm (e.g. bp.cfg, or ga.cfg)  
+			 Next LTS configuration file (e.g. applic2.cfg) to chain to after this one.
+		NB: In general, results and statistics from running any configuration file such 
+			as "my_conf.cfg" will be placed in "my_conf.sta"
+
+			
+	Format of a configuration file
+	==============================		
+	A configuration file consists of words and numbers separated by white space (spaces, tabs, 
+	and carriage returns). Inverted commas surrounding words are ignored 
+	- i.e. file-name paths can be specified with or without inverted commas.
+	
+	Comments
+	========
+	Comment statements are denoted by the usual C comment delimiters. These should be 
+	separated by white space from any other words. This explanation is an example of
+	such a comment.
+
+
+	Constructions
+	=============
+	Other parameters are specified by various 'constructions', which start with a particular
+	keyword followed by qualifiers. For example the 'train_data' construction is:
+	
+		train_data "foo.dat" 
+
+
+	The keywords denoting constructions are:
+	
+		train_data , test_data , train_price_data , test_price_data ,
+		input_fields , output_fields , num_fields ,
+		transaction_size , transaction_cost , init_capital , no_pos_zone ,   
+		next_config , bp_config , ga_config ,		 
+
+
+	The following keywords are used within constructions: 
+	
+		records , ignore , pattern_delay , prediction_delay
+		
+		
+	Floating point numbers, integers and file-name paths will also be required.
+
+
+	This example
+	============
+	Their use is illustrated by example below. Alternative forms of a construction are 
+	shown by the word 'OR'  - delete the OR and the comment delimiters to get the true
+	alternative form of the construction. 
+
+	
+ 	************************************************************************************** */
+
+
+
+
+									/* ****************************************************	*/
+									/*														*/
+									/*	Specify windowing of data							*/
+									/*	=========================							*/
+									/*														*/
+window 5							/*	Specifiy length of window.  Default set to 0 if 	*/
+									/*	construction is not present.						*/
+									/* OR	window 5 prediction_delay 3						*/
+									/* OR	window 5 pattern_delay 2 						*/
+									/* OR	window 5 prediction_delay 3 pattern_delay 2		*/
+									/*	In all these alternatives ^^^^^^ if pattern_delay 	*/
+									/*	prediction_delay are not specified they are set to	*/
+									/*	1 by default.										*/
+									/*														*/
+									/*	If window is specified to be more than 0 then the 	*/
+									/*	number of input-nodes in the neural network must be	*/
+									/*	equal to the (window * input_fields), and the 		*/
+									/* 	number of output-nodes must be input_fields (in 	*/
+									/*	this case there are no columns specifically for 	*/
+									/*	output so output_fields must be 0).					*/   
+									/*														*/
+									/*	Specify training data								*/
+									/*	=====================								*/
+									/*														*/												
+									/*	Specify file containing training data and number	*/				
+									/*	of records to be read from it.						*/
+
+train_data "c:/qtm/data/foo.dat"  records 100
+
+									/* OR	train_data "foo.dat" 							*/
+									/* OR	train_data "foo.dat" records 400 ignore 10		*/ 
+									/* OR	train_data "foo.dat" ignore 10 					*/
+									/*	The alternative forms ^^^^^^^ are to:				*/
+									/*		Read all records in the file.					*/
+									/*		Ignore the first few records in a file and read	*/
+									/*		  the rest.										*/ 
+									/*		Ignore the first few records and read a number 	*/
+									/*		  of records afterwards.						*/
+									/*														*/
+									/*														*/
+									/*	Specify file containing column of prices for the 	*/ 
+									/*	training data (training data may consist of,		*/
+									/*	financial indicators rather than raw prices).		*/
+
+train_price_data "c:/qtm/data/foo.dat"  
+
+									/*	The number of price records to read and skip is the	*/
+									/*	same as for the training records.					*/
+									/*														*/
+									/*														*/
+									/*	Specify test data									*/
+									/*	=================									*/
+									/*														*/												
+									/*	Specify file containing test data and number		*/		
+									/*	of records to be read from it.						*/	
+
+test_data "c:/qtm/data/foo.dat"   records 100 ignore 100
+
+									/* OR	test_data "foo.dat"  		 					*/
+									/* OR	test_data "foo.dat" records 400 				*/ 
+									/* OR	test_data "foo.dat" records 905 ignore 400 		*/
+									/*	The alternative forms ^^^^^^^ are to:				*/
+									/*		Read all records in the file.					*/
+									/*		Read the first few records from the file.		*/ 
+									/*		Ignore the first few records and read a number 	*/
+									/*		  of records afterwards.						*/
+									/*														*/
+									/*														*/
+									/*	Specify file containing column of prices for the 	*/ 
+									/*	test data (test data may consist of indicators,		*/
+									/*	rather than raw prices).							*/
+
+test_price_data "c:/qtm/data/foo.dat"  
+
+									/*	The number of price records to read and skip is the	*/
+									/*	same as for the training records.					*/
+									/*														*/
+transaction_size	10000			/*	Specify the transaction size of a trade.			*/
+transaction_cost	10				/*	Specify the transaction cost of a trade.			*/
+init_capital		10000			/*	Specify the initial trading capital.				*/
+									/*														*/
+									/*														*/
+no_pos_zone			0.002			/*	Specifiy the no-position zone for flat markets.		*/
+									/*	  FLAT if |(p(t+1)-P(t)/p(t)| < no_pos_zone			*/
+									/*														*/
+									/*														*/
+									/*	Specify column format of the train and test data	*/ 
+									/*	================================================	*/
+									/*														*/
+input_fields 1						/*	Specify the number of input and output fields.		*/
+output_fields 1						/*														*/	
+									/*														*/
+									/*	If window is not specified or set to 0 then for 	*/
+									/*	each record, the inputs to the network are the 		*/
+									/*	first input_fields fields and the outputs are the 	*/
+									/*	following output_fields fields.  					*/
+									/*	The number of nodes in the input and output layers	*/
+									/*	should be specified accordingly to be just these 	*/
+									/*	amounts.											*/
+									/*														*/
+									/*														*/
+									/*  Specify the other configuration files				*/
+									/*	=====================================				*/
+									/*														*/  
+algorithm_config "bp.cfg"			/*	Specify a configuration file for the learning 		*/
+									/*	algorithm of the LTS.								*/
+									/*														*/
+/* next_config "applic2.cfg"  */	/*  Specify next LTS configuration file to chain to.	*/
+									/*	If construction is not present then stop after 		*/
+									/*	running LTS with the present configuration.			*/
+									/*														*/
+									/*														*/
+									/*	In this way several experiments can be done 		*/
+									/*	overnight or over a weekend.						*/
+									/*	Remember to think about where the weights are to 	*/
+									/*	come from and be saved to in each run of the 		*/
+									/*	learning algorithm.									*/
+									/*	It may be worth running each configuration briefly 	*/
+									/*	to make sure that it loads and parses correctly.	*/
+									/*														*/
+									/*	In general, results and statistics from running any	*/
+									/*	configuration file such as "my_conf.cfg" will be 	*/
+									/*	placed in "my_conf.sta"								*/
+									/*														*/
+									/*														*/
+									/* ****************************************************	*/
+
+
+
+
+
+
+
+
+

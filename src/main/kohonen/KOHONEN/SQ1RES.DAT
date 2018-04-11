@@ -1,0 +1,616 @@
+
+Responses of neurons to training example 1 : 
+  -0.848  -1.401   0.141  -0.311
+  -1.059  -1.419  -1.025   0.207
+  -0.714  -1.932  -0.795 * 2.156
+   1.073  -1.680   0.604  -1.211
+
+Responses of neurons to training example 2 : 
+  -1.807   0.596  -0.388  -1.900
+  -1.798  -2.903  -2.653  -1.119
+  -3.780   0.727   0.478  -2.470
+  -2.889   0.600 * 4.890  -1.665
+
+Responses of neurons to training example 3 : 
+  -0.256  -2.798   0.551  -1.271
+  -3.594  -1.144  -3.209   2.552
+  -0.776  -2.415  -3.699   2.130
+ * 3.639  -0.648  -2.624  -2.030
+
+Responses of neurons to training example 4 : 
+  -2.211  -2.407  -3.097   1.273
+ * 2.678  -3.668  -1.500   0.679
+   2.487   0.817  -2.894  -0.135
+  -0.211  -0.322  -1.234  -1.600
+
+Responses of neurons to training example 5 : 
+   0.451  -1.163  -0.129  -0.149
+  -0.782  -1.424   1.260   0.773
+   0.606  -2.977  -0.361 * 3.324
+   2.187  -2.190  -1.174  -1.359
+
+Responses of neurons to training example 6 : 
+  -2.292   0.387   0.376  -1.033
+  -1.100  -1.908  -2.705  -0.904
+  -2.980   1.735   0.511  -2.609
+  -2.709   1.213 * 4.176  -0.677
+
+Responses of neurons to training example 7 : 
+  -1.363  -3.754  -0.854  -1.311
+  -3.155  -3.580  -3.768   2.966
+  -0.378  -2.737  -4.712   2.226
+ * 3.538  -1.093  -2.305  -3.517
+
+Responses of neurons to training example 8 : 
+  -3.926  -2.192  -2.597   1.266
+   2.360  -3.496  -2.828   0.809
+ * 2.628   1.351  -3.658  -0.552
+  -0.338  -0.245  -1.485  -2.581
+
+Responses of neurons to training example 9 : 
+   0.158  -1.773   0.423  -0.373
+  -0.703  -2.961  -0.329   0.740
+  -0.255  -1.994  -0.806 * 3.402
+   1.821  -1.671  -0.331  -1.963
+
+Responses of neurons to training example 10 : 
+  -1.689   0.412  -0.183  -1.639
+  -1.150  -2.102  -2.323  -0.847
+  -2.934   0.356   0.361  -2.128
+  -2.281   0.219 * 3.876  -0.935
+
+Responses of neurons to training example 11 : 
+  -0.065  -2.108   0.161  -1.468
+  -4.092  -1.407  -3.086   2.625
+  -1.233  -2.230  -3.682   2.329
+ * 3.885  -0.160  -2.147  -2.198
+
+Responses of neurons to training example 12 : 
+  -2.601  -3.140  -2.112   1.104
+ * 2.330  -4.119  -3.018   0.824
+   1.728   1.669  -3.031  -0.451
+  -0.389  -0.656  -0.938  -2.344
+
+Responses of neurons to training example 13 : 
+   0.164  -1.528   0.641  -0.503
+  -1.703  -1.143  -0.443   0.824
+  -0.838  -2.058  -0.667 * 3.234
+   2.435  -2.068  -0.678  -0.673
+
+Responses of neurons to training example 14 : 
+  -0.559  -0.763  -1.315  -2.167
+  -1.388  -3.195  -2.568  -0.810
+  -3.512   0.298   0.525  -1.984
+  -2.249  -0.188 * 3.965  -1.780
+
+Responses of neurons to training example 15 : 
+   0.218  -2.673  -1.428  -1.035
+  -2.609  -0.812  -2.759   2.452
+   0.320  -2.097  -3.091   2.246
+ * 3.735  -1.432  -3.111  -2.413
+
+Responses of neurons to training example 16 : 
+  -2.612  -2.387  -2.295   1.764
+   2.626  -2.972  -1.106   0.659
+ * 2.841   1.428  -2.876  -0.560
+  -0.345  -0.633  -2.185  -1.691
+
+Responses of neurons to training example 17 : 
+  -0.505  -1.684  -0.372  -0.629
+  -1.914  -1.821  -1.169   0.969
+  -0.676  -1.962  -1.330 * 3.106
+   2.238  -1.679  -0.310  -1.595
+
+Responses of neurons to training example 18 : 
+  -1.214   0.600  -0.259  -1.681
+  -1.217  -2.196  -1.429  -1.301
+  -3.349   0.477   0.967  -2.192
+  -2.650   0.577 * 4.157  -1.023
+
+Responses of neurons to training example 19 : 
+  -0.722  -2.887   0.272  -1.247
+  -3.627  -2.356  -3.284   2.258
+  -1.510  -2.208  -3.631   1.884
+ * 3.054  -0.234  -1.305  -2.270
+
+Responses of neurons to training example 20 : 
+  -3.065  -3.581  -2.877   1.769
+ * 3.179  -3.380  -2.413   0.740
+   2.936   1.165  -3.555  -0.996
+  -0.461  -0.986  -2.125  -1.351
+
+Responses of neurons to test example 1 (21) : 
+  -0.052  -2.644   0.645  -0.768
+  -1.969  -2.431  -0.418   1.007
+  -0.906  -3.679  -0.857 * 4.493
+   2.946  -3.144  -0.497  -1.687
+
+Responses of neurons to test example 2 (22) : 
+  -1.922   0.095  -0.556  -2.637
+  -2.043  -4.023  -3.353  -1.539
+  -5.178   1.084   0.904  -3.065
+  -3.825   0.390 * 6.433  -2.044
+
+Responses of neurons to test example 3 (23) : 
+  -0.880  -3.801  -0.006  -1.567
+  -5.217  -2.071  -4.968   3.716
+  -0.964  -2.676  -5.641   2.844
+ * 5.032  -0.324  -3.485  -3.455
+
+Responses of neurons to test example 4 (24) : 
+  -4.926  -4.265  -3.860   2.114
+   3.871  -5.085  -3.210   1.124
+ * 3.949   1.608  -4.752  -1.038
+  -0.627  -1.128  -2.503  -3.050
+
+Responses of neurons to training example 1 :
+        Neuron   1                   *|    -5.30%
+        Neuron   2                   *|    -8.76%
+        Neuron   3                    |     0.88%
+        Neuron   4                    |    -1.95%
+        Neuron   5                   *|    -6.62%
+        Neuron   6                   *|    -8.87%
+        Neuron   7                   *|    -6.41%
+        Neuron   8                    |     1.29%
+        Neuron   9                    |    -4.46%
+        Neuron  10                  **|   -12.08%
+        Neuron  11                    |    -4.97%
+Maximum Neuron  12                    |**    13.48%
+        Neuron  13                    |*     6.71%
+        Neuron  14                  **|   -10.50%
+        Neuron  15                    |     3.78%
+        Neuron  16                   *|    -7.57%
+
+
+Responses of neurons to training example 2 :
+        Neuron   1                  **|   -11.29%
+        Neuron   2                    |     3.73%
+        Neuron   3                    |    -2.42%
+        Neuron   4                  **|   -11.88%
+        Neuron   5                  **|   -11.24%
+        Neuron   6                 ***|   -18.14%
+        Neuron   7                 ***|   -16.58%
+        Neuron   8                   *|    -7.00%
+        Neuron   9                ****|   -23.63%
+        Neuron  10                    |     4.54%
+        Neuron  11                    |     2.99%
+        Neuron  12                 ***|   -15.44%
+        Neuron  13                 ***|   -18.06%
+        Neuron  14                    |     3.75%
+Maximum Neuron  15                    |******    30.56%
+        Neuron  16                  **|   -10.41%
+
+
+Responses of neurons to training example 3 :
+        Neuron   1                    |    -1.60%
+        Neuron   2                 ***|   -17.49%
+        Neuron   3                    |     3.45%
+        Neuron   4                   *|    -7.94%
+        Neuron   5                ****|   -22.46%
+        Neuron   6                   *|    -7.15%
+        Neuron   7                ****|   -20.06%
+        Neuron   8                    |***    15.95%
+        Neuron   9                    |    -4.85%
+        Neuron  10                 ***|   -15.10%
+        Neuron  11                ****|   -23.12%
+        Neuron  12                    |**    13.31%
+Maximum Neuron  13                    |****    22.74%
+        Neuron  14                    |    -4.05%
+        Neuron  15                 ***|   -16.40%
+        Neuron  16                  **|   -12.69%
+
+
+Responses of neurons to training example 4 :
+        Neuron   1                  **|   -13.82%
+        Neuron   2                 ***|   -15.05%
+        Neuron   3                 ***|   -19.36%
+        Neuron   4                    |*     7.96%
+Maximum Neuron   5                    |***    16.74%
+        Neuron   6                ****|   -22.92%
+        Neuron   7                   *|    -9.37%
+        Neuron   8                    |     4.24%
+        Neuron   9                    |***    15.54%
+        Neuron  10                    |*     5.11%
+        Neuron  11                 ***|   -18.09%
+        Neuron  12                    |    -0.84%
+        Neuron  13                    |    -1.32%
+        Neuron  14                    |    -2.01%
+        Neuron  15                   *|    -7.72%
+        Neuron  16                  **|   -10.00%
+
+
+Responses of neurons to training example 5 :
+        Neuron   1                    |     2.82%
+        Neuron   2                   *|    -7.27%
+        Neuron   3                    |    -0.81%
+        Neuron   4                    |    -0.93%
+        Neuron   5                    |    -4.89%
+        Neuron   6                   *|    -8.90%
+        Neuron   7                    |*     7.87%
+        Neuron   8                    |     4.83%
+        Neuron   9                    |     3.79%
+        Neuron  10                 ***|   -18.61%
+        Neuron  11                    |    -2.26%
+Maximum Neuron  12                    |****    20.77%
+        Neuron  13                    |**    13.67%
+        Neuron  14                  **|   -13.69%
+        Neuron  15                   *|    -7.33%
+        Neuron  16                   *|    -8.50%
+
+
+Responses of neurons to training example 6 :
+        Neuron   1                  **|   -14.33%
+        Neuron   2                    |     2.42%
+        Neuron   3                    |     2.35%
+        Neuron   4                   *|    -6.45%
+        Neuron   5                   *|    -6.88%
+        Neuron   6                  **|   -11.92%
+        Neuron   7                 ***|   -16.90%
+        Neuron   8                   *|    -5.65%
+        Neuron   9                 ***|   -18.62%
+        Neuron  10                    |**    10.84%
+        Neuron  11                    |     3.19%
+        Neuron  12                 ***|   -16.31%
+        Neuron  13                 ***|   -16.93%
+        Neuron  14                    |*     7.58%
+Maximum Neuron  15                    |*****    26.10%
+        Neuron  16                    |    -4.23%
+
+
+Responses of neurons to training example 7 :
+        Neuron   1                   *|    -8.52%
+        Neuron   2                ****|   -23.46%
+        Neuron   3                   *|    -5.34%
+        Neuron   4                   *|    -8.20%
+        Neuron   5                 ***|   -19.72%
+        Neuron   6                ****|   -22.37%
+        Neuron   7                ****|   -23.55%
+        Neuron   8                    |***    18.54%
+        Neuron   9                    |    -2.36%
+        Neuron  10                 ***|   -17.11%
+        Neuron  11               *****|   -29.45%
+        Neuron  12                    |**    13.91%
+Maximum Neuron  13                    |****    22.11%
+        Neuron  14                   *|    -6.83%
+        Neuron  15                  **|   -14.41%
+        Neuron  16                ****|   -21.98%
+
+
+Responses of neurons to training example 8 :
+        Neuron   1                ****|   -24.54%
+        Neuron   2                  **|   -13.70%
+        Neuron   3                 ***|   -16.23%
+        Neuron   4                    |*     7.91%
+        Neuron   5                    |**    14.75%
+        Neuron   6                ****|   -21.85%
+        Neuron   7                 ***|   -17.68%
+        Neuron   8                    |*     5.06%
+Maximum Neuron   9                    |***    16.42%
+        Neuron  10                    |*     8.44%
+        Neuron  11                ****|   -22.86%
+        Neuron  12                    |    -3.45%
+        Neuron  13                    |    -2.11%
+        Neuron  14                    |    -1.53%
+        Neuron  15                   *|    -9.28%
+        Neuron  16                 ***|   -16.13%
+
+
+Responses of neurons to training example 9 :
+        Neuron   1                    |     0.99%
+        Neuron   2                  **|   -11.08%
+        Neuron   3                    |     2.64%
+        Neuron   4                    |    -2.33%
+        Neuron   5                    |    -4.40%
+        Neuron   6                 ***|   -18.50%
+        Neuron   7                    |    -2.05%
+        Neuron   8                    |     4.62%
+        Neuron   9                    |    -1.59%
+        Neuron  10                  **|   -12.46%
+        Neuron  11                   *|    -5.04%
+Maximum Neuron  12                    |****    21.27%
+        Neuron  13                    |**    11.38%
+        Neuron  14                  **|   -10.44%
+        Neuron  15                    |    -2.07%
+        Neuron  16                  **|   -12.27%
+
+
+Responses of neurons to training example 10 :
+        Neuron   1                  **|   -10.56%
+        Neuron   2                    |     2.57%
+        Neuron   3                    |    -1.14%
+        Neuron   4                  **|   -10.24%
+        Neuron   5                   *|    -7.19%
+        Neuron   6                  **|   -13.14%
+        Neuron   7                  **|   -14.52%
+        Neuron   8                   *|    -5.30%
+        Neuron   9                 ***|   -18.34%
+        Neuron  10                    |     2.22%
+        Neuron  11                    |     2.26%
+        Neuron  12                  **|   -13.30%
+        Neuron  13                  **|   -14.26%
+        Neuron  14                    |     1.37%
+Maximum Neuron  15                    |****    24.22%
+        Neuron  16                   *|    -5.84%
+
+
+Responses of neurons to training example 11 :
+        Neuron   1                    |    -0.40%
+        Neuron   2                  **|   -13.18%
+        Neuron   3                    |     1.01%
+        Neuron   4                   *|    -9.17%
+        Neuron   5               *****|   -25.58%
+        Neuron   6                   *|    -8.79%
+        Neuron   7                 ***|   -19.29%
+        Neuron   8                    |***    16.41%
+        Neuron   9                   *|    -7.71%
+        Neuron  10                  **|   -13.93%
+        Neuron  11                ****|   -23.01%
+        Neuron  12                    |**    14.55%
+Maximum Neuron  13                    |****    24.28%
+        Neuron  14                    |     -1.0%
+        Neuron  15                  **|   -13.42%
+        Neuron  16                  **|   -13.74%
+
+
+Responses of neurons to training example 12 :
+        Neuron   1                 ***|   -16.26%
+        Neuron   2                 ***|   -19.63%
+        Neuron   3                  **|   -13.20%
+        Neuron   4                    |*     6.90%
+Maximum Neuron   5                    |**    14.56%
+        Neuron   6               *****|   -25.75%
+        Neuron   7                 ***|   -18.86%
+        Neuron   8                    |*     5.15%
+        Neuron   9                    |**    10.80%
+        Neuron  10                    |**    10.43%
+        Neuron  11                 ***|   -18.94%
+        Neuron  12                    |    -2.82%
+        Neuron  13                    |    -2.43%
+        Neuron  14                    |    -4.10%
+        Neuron  15                   *|    -5.86%
+        Neuron  16                  **|   -14.65%
+
+
+Responses of neurons to training example 13 :
+        Neuron   1                    |     1.02%
+        Neuron   2                   *|    -9.55%
+        Neuron   3                    |     4.01%
+        Neuron   4                    |    -3.14%
+        Neuron   5                  **|   -10.65%
+        Neuron   6                   *|    -7.14%
+        Neuron   7                    |    -2.77%
+        Neuron   8                    |*     5.15%
+        Neuron   9                   *|    -5.24%
+        Neuron  10                  **|   -12.86%
+        Neuron  11                    |    -4.17%
+Maximum Neuron  12                    |****    20.21%
+        Neuron  13                    |***    15.22%
+        Neuron  14                  **|   -12.93%
+        Neuron  15                    |    -4.24%
+        Neuron  16                    |    -4.21%
+
+
+Responses of neurons to training example 14 :
+        Neuron   1                    |    -3.49%
+        Neuron   2                    |    -4.77%
+        Neuron   3                   *|    -8.22%
+        Neuron   4                  **|   -13.54%
+        Neuron   5                   *|    -8.67%
+        Neuron   6                 ***|   -19.97%
+        Neuron   7                 ***|   -16.05%
+        Neuron   8                   *|    -5.06%
+        Neuron   9                ****|   -21.95%
+        Neuron  10                    |     1.86%
+        Neuron  11                    |     3.28%
+        Neuron  12                  **|   -12.40%
+        Neuron  13                  **|   -14.05%
+        Neuron  14                    |    -1.17%
+Maximum Neuron  15                    |****    24.78%
+        Neuron  16                  **|   -11.12%
+
+
+Responses of neurons to training example 15 :
+        Neuron   1                    |     1.36%
+        Neuron   2                 ***|   -16.71%
+        Neuron   3                   *|    -8.92%
+        Neuron   4                   *|    -6.47%
+        Neuron   5                 ***|   -16.31%
+        Neuron   6                   *|    -5.07%
+        Neuron   7                 ***|   -17.24%
+        Neuron   8                    |***    15.33%
+        Neuron   9                    |     2.00%
+        Neuron  10                  **|   -13.11%
+        Neuron  11                 ***|   -19.32%
+        Neuron  12                    |**    14.03%
+Maximum Neuron  13                    |****    23.34%
+        Neuron  14                   *|    -8.95%
+        Neuron  15                 ***|   -19.44%
+        Neuron  16                 ***|   -15.08%
+
+
+Responses of neurons to training example 16 :
+        Neuron   1                 ***|   -16.33%
+        Neuron   2                  **|   -14.92%
+        Neuron   3                  **|   -14.34%
+        Neuron   4                    |**    11.02%
+        Neuron   5                    |***    16.41%
+        Neuron   6                 ***|   -18.57%
+        Neuron   7                   *|    -6.91%
+        Neuron   8                    |     4.12%
+Maximum Neuron   9                    |***    17.76%
+        Neuron  10                    |*     8.93%
+        Neuron  11                 ***|   -17.97%
+        Neuron  12                    |    -3.50%
+        Neuron  13                    |    -2.16%
+        Neuron  14                    |    -3.96%
+        Neuron  15                  **|   -13.66%
+        Neuron  16                  **|   -10.57%
+
+
+Responses of neurons to training example 17 :
+        Neuron   1                    |    -3.16%
+        Neuron   2                  **|   -10.52%
+        Neuron   3                    |    -2.33%
+        Neuron   4                    |    -3.93%
+        Neuron   5                  **|   -11.96%
+        Neuron   6                  **|   -11.38%
+        Neuron   7                   *|    -7.31%
+        Neuron   8                    |*     6.05%
+        Neuron   9                    |    -4.23%
+        Neuron  10                  **|   -12.26%
+        Neuron  11                   *|    -8.31%
+Maximum Neuron  12                    |***    19.41%
+        Neuron  13                    |**    13.99%
+        Neuron  14                  **|   -10.49%
+        Neuron  15                    |    -1.94%
+        Neuron  16                   *|    -9.97%
+
+
+Responses of neurons to training example 18 :
+        Neuron   1                   *|    -7.59%
+        Neuron   2                    |     3.75%
+        Neuron   3                    |    -1.62%
+        Neuron   4                  **|   -10.51%
+        Neuron   5                   *|    -7.61%
+        Neuron   6                  **|   -13.72%
+        Neuron   7                   *|    -8.93%
+        Neuron   8                   *|    -8.13%
+        Neuron   9                ****|   -20.93%
+        Neuron  10                    |     2.98%
+        Neuron  11                    |*     6.05%
+        Neuron  12                  **|   -13.70%
+        Neuron  13                 ***|   -16.56%
+        Neuron  14                    |     3.60%
+Maximum Neuron  15                    |*****    25.98%
+        Neuron  16                   *|    -6.39%
+
+
+Responses of neurons to training example 19 :
+        Neuron   1                    |    -4.51%
+        Neuron   2                 ***|   -18.04%
+        Neuron   3                    |     1.70%
+        Neuron   4                   *|    -7.79%
+        Neuron   5                ****|   -22.67%
+        Neuron   6                  **|   -14.72%
+        Neuron   7                ****|   -20.52%
+        Neuron   8                    |**    14.11%
+        Neuron   9                   *|    -9.44%
+        Neuron  10                  **|   -13.80%
+        Neuron  11                ****|   -22.69%
+        Neuron  12                    |**    11.78%
+Maximum Neuron  13                    |***    19.09%
+        Neuron  14                    |    -1.46%
+        Neuron  15                   *|    -8.16%
+        Neuron  16                  **|   -14.19%
+
+
+Responses of neurons to training example 20 :
+        Neuron   1                 ***|   -19.16%
+        Neuron   2                ****|   -22.38%
+        Neuron   3                 ***|   -17.98%
+        Neuron   4                    |**    11.06%
+Maximum Neuron   5                    |***    19.87%
+        Neuron   6                ****|   -21.13%
+        Neuron   7                 ***|   -15.08%
+        Neuron   8                    |     4.63%
+        Neuron   9                    |***    18.35%
+        Neuron  10                    |*     7.28%
+        Neuron  11                ****|   -22.22%
+        Neuron  12                   *|    -6.23%
+        Neuron  13                    |    -2.88%
+        Neuron  14                   *|    -6.16%
+        Neuron  15                  **|   -13.28%
+        Neuron  16                   *|    -8.44%
+
+
+Responses of neurons to test example 1 (21) :
+        Neuron   1                    |    -0.32%
+        Neuron   2                 ***|   -16.52%
+        Neuron   3                    |     4.03%
+        Neuron   4                    |    -4.80%
+        Neuron   5                  **|   -12.31%
+        Neuron   6                 ***|   -15.19%
+        Neuron   7                    |    -2.61%
+        Neuron   8                    |*     6.30%
+        Neuron   9                   *|    -5.66%
+        Neuron  10                ****|   -22.99%
+        Neuron  11                   *|    -5.36%
+Maximum Neuron  12                    |*****    28.08%
+        Neuron  13                    |***    18.41%
+        Neuron  14                 ***|   -19.65%
+        Neuron  15                    |    -3.11%
+        Neuron  16                  **|   -10.54%
+
+
+Responses of neurons to test example 2 (22) :
+        Neuron   1                  **|   -12.01%
+        Neuron   2                    |     0.59%
+        Neuron   3                    |    -3.47%
+        Neuron   4                 ***|   -16.48%
+        Neuron   5                  **|   -12.77%
+        Neuron   6               *****|   -25.15%
+        Neuron   7                ****|   -20.96%
+        Neuron   8                   *|    -9.62%
+        Neuron   9              ******|   -32.36%
+        Neuron  10                    |*     6.77%
+        Neuron  11                    |*     5.65%
+        Neuron  12                 ***|   -19.15%
+        Neuron  13                ****|   -23.91%
+        Neuron  14                    |     2.44%
+Maximum Neuron  15                    |********    40.21%
+        Neuron  16                  **|   -12.77%
+
+
+Responses of neurons to test example 3 (23) :
+        Neuron   1                   *|    -5.50%
+        Neuron   2                ****|   -23.76%
+        Neuron   3                    |    -0.04%
+        Neuron   4                   *|    -9.80%
+        Neuron   5              ******|   -32.60%
+        Neuron   6                  **|   -12.94%
+        Neuron   7              ******|   -31.05%
+        Neuron   8                    |****    23.23%
+        Neuron   9                   *|    -6.02%
+        Neuron  10                 ***|   -16.72%
+        Neuron  11             *******|   -35.26%
+        Neuron  12                    |***    17.77%
+Maximum Neuron  13                    |******    31.45%
+        Neuron  14                    |    -2.02%
+        Neuron  15                ****|   -21.78%
+        Neuron  16                ****|   -21.59%
+
+
+Responses of neurons to test example 4 (24) :
+        Neuron   1              ******|   -30.78%
+        Neuron   2               *****|   -26.66%
+        Neuron   3                ****|   -24.12%
+        Neuron   4                    |**    13.21%
+        Neuron   5                    |****    24.20%
+        Neuron   6              ******|   -31.78%
+        Neuron   7                ****|   -20.06%
+        Neuron   8                    |*     7.02%
+Maximum Neuron   9                    |****    24.68%
+        Neuron  10                    |**    10.05%
+        Neuron  11               *****|   -29.70%
+        Neuron  12                   *|    -6.49%
+        Neuron  13                    |    -3.92%
+        Neuron  14                   *|    -7.05%
+        Neuron  15                 ***|   -15.65%
+        Neuron  16                 ***|   -19.07%
+
+
+Clusters
+Cluster 1  Neuron 5  Members 3
+4 12 20 
+
+Cluster 2  Neuron 9  Members 3
+8 16 24 
+
+Cluster 3  Neuron 12  Members 6
+1 5 9 13 17 21 
+
+Cluster 4  Neuron 13  Members 6
+3 7 11 15 19 23 
+
+Cluster 5  Neuron 15  Members 6
+2 6 10 14 18 22 
