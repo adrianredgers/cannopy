@@ -1,8 +1,12 @@
 
-# Set sources and create ${MY_LIB} as a SHARED lib from them
-set(SOURCES Factorial.cpp Factorial.h)
-# Creates it as: build/src/main/lib${MY_LIB}.so
-add_library(${MY_LIB} SHARED ${SOURCES})
+
+include_directories(${PYTHON_INCLUDE_DIR} ${CMAKE_SOURCE_DIR}/src/main)
+
+set(MY_SOURCES "" CACHE INTERNAL "")
+add_subdirectory(numer)
+add_subdirectory(ann)
+add_library(${MY_LIB} SHARED ${MY_SOURCES})
+
 
 # Link some-other-lib into the new $MY_LIB
 #   (do it now instead of adding link later whenever we use $MY_LIB)
@@ -29,6 +33,7 @@ pybind11_add_module(${MY_PY_MODULE} PyModule.cpp)
 # Link ${MY_LIB} into new module - note the PRIVATE keyword
 target_link_libraries(${MY_PY_MODULE} PRIVATE ${MY_LIB})
 
+
 # Place the targets in ${TARGET_DIR}
 # Or you can set CMAKE_xxx_OUTPUT_DIRECTORY properties globally in the top level CMakeLists.txt
 #  e.g.: set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${TARGET_DIR})
@@ -38,9 +43,9 @@ set_target_properties(${MY_LIB} ${MY_PY_MODULE}
         LIBRARY_OUTPUT_DIRECTORY ${TARGET_DIR}
         RUNTIME_OUTPUT_DIRECTORY ${TARGET_DIR})
 
+
 # Copy the Python module to the Python distribution dir - you must have permissions to copy to this dir.
 add_custom_command(TARGET ${MY_PY_MODULE} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MY_PY_MODULE}> ${PYTHON_DIST_DIR})
-
 
 

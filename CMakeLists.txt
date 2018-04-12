@@ -11,10 +11,11 @@ set(TARGET_DIR ${CMAKE_SOURCE_DIR}/build)
 # script (compile.sh) to cd to a build directory and make from there.   :-(
 # TODO fix it
 
-project(myFirstClion)
-set(MY_LIB FactorialLib)
+project(cannopy)
+
+set(MY_LIB cannopylLib)
 # python module name - note: same as used in PyModule.cpp
-set(MY_PY_MODULE myfactorial)
+set(MY_PY_MODULE cannopy)
 
 add_subdirectory(src/main)
 add_subdirectory(src/test)
