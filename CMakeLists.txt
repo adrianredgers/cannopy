@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 # Supposed to make it multi-platform - works fine without it in Ubuntu.
 include(GNUInstallDirs)
 
-# Directory in which to place our targets: runUnittests, libFactorialLib.so, myfactorial.so
+# Directory in which to place our targets
 set(TARGET_DIR ${CMAKE_SOURCE_DIR}/build)
 #
 # I wish we could force an "out-of-source" build from here in CMake, but we cannot, we need to use a
