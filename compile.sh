@@ -3,7 +3,7 @@
 #
 # Create build dir and make the targets
 #
-PYTHON_MODULE=cannopy
+PYTHON_MODULE=myfactorial
 rm $PYTHON_DIST_LIB/${PYTHON_MODULE}.so
 
 BUILD_DIR=build

@@ -1,7 +1,6 @@
 
 #include <gtest/gtest.h>
 #include <NumerLib.h>
-#include <Adrian.h>
 #include <TestUtils.h>
 
 using namespace cannopy;

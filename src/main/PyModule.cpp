@@ -24,25 +24,12 @@ FloatType maxi(const std::vector<FloatType> &v, FloatType w) {
     }
     return maxVal;
 }
-/*
-FloatType maxi(py::list myList) {
-    FloatType maxVal = PyFloat_GetMin();
-    const pybind11::detail::list_iterator &v = myList.begin();
-    for(FloatType f:myList) {
-        if(f>maxVal) {
-            maxVal=f;
-        }
-    }
-    return maxVal;
-}
-*/
 
 
 PYBIND11_MODULE(cannopy, m) {
     m.def("add", &add, "add stuff");
     m.def("max", &maxi, "max", py::arg("list"), py::arg("initMax") );
     m.def("fact", &factorial, "calc factorial of n", py::arg("n"));
-//    m.def("RAM", &factorial, "calc factorial");
     py::class_<RAMNeuron>(m, "RAM")
             .def(py::init<int &>())
             .def("reset", &RAMNeuron::reset)
