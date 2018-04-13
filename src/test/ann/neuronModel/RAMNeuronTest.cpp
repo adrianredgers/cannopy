@@ -12,9 +12,9 @@ using namespace cannopy;
 TEST(RAMNeuronTest, EmptyNode) {
     // Given:
     RAMNeuron ram = RAMNeuron(2);
-    IntPtr address = MALLOC(IntType, 2);
-    address[0] = 0;
-    address[1] = 1;
+    AddressType address;
+    address.push_back(1);
+    address.push_back(0);
 
     cout << "sizeof int = " << sizeof(int) << endl;
     cout << "sizeof long = " << sizeof(long) << endl;
@@ -32,30 +32,30 @@ TEST(RAMNeuronTest, EmptyNode) {
 TEST(RAMNeuronTest, SetAddress) {
     // Given:
     RAMNeuron ram = RAMNeuron(2);
-    IntPtr address = MALLOC(IntType, 2);
-    address[0] = 0;
-    address[1] = 1;
+    AddressType address;
+    address.push_back(1);
+    address.push_back(0);
 
     // When:
     ram.set(address, 1);
 
     // Then:
-    int actual = ram.lookup(address);
+    IntType actual = ram.lookup(address);
     EXPECT_EQ(1, actual) << "Testing RAM(0,1)";
 }
 
 TEST(RAMNeuronTest, Reset) {
     // Given:
     RAMNeuron ram = RAMNeuron(2);
-    IntPtr address = MALLOC(IntType, 2);
-    address[0] = 0;
-    address[1] = 1;
+    AddressType address;
+    address.push_back(1);
+    address.push_back(0);
     ram.set(address, 1);
 
     // When:
     ram.reset();
 
     // Then:
-    int actual = ram.lookup(address);
+    IntType actual = ram.lookup(address);
     EXPECT_EQ(0, actual) << "Testing RAM(0,1)";
 }

@@ -3,12 +3,15 @@
 #define CANNOPY_ANNLIB_H
 
 #include <Adrian.h>
+
 namespace cannopy {
+
+    class RAMNeuronPrivate;
 
     class RAMNeuron {
 
     public:
-        IntType MAX_INPUTS = 20;
+        static const IntType MAX_INPUTS = 20;
 
         RAMNeuron(IntType numInputs);
 
@@ -16,10 +19,12 @@ namespace cannopy {
 
         void reset();
 
-        void set(IntPtr address, IntType value);
+        void set(AddressRef address, IntType value);
 
-        IntType lookup(IntPtr address);
+        IntType lookup(AddressRef address);
 
+    private:
+        RAMNeuronPrivate *mData;
     };
 
 }

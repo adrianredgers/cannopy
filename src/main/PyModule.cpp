@@ -1,19 +1,46 @@
 
+#include <pybind11/stl.h>
 #include <pybind11/pybind11.h>
 #include <NumerLib.h>
 #include <ANNLib.h>
 
 
-namespace py = pybind11;
+using namespace std;
 using namespace cannopy;
+
+namespace py = pybind11;
 
 IntType add(IntType a, IntType b) {
     return a + b;
 }
 
+FloatType maxi(const std::vector<FloatType> &v, FloatType w) {
+    FloatType maxVal = w;
+
+    for(FloatType f:v) {
+        if(f>maxVal) {
+            maxVal=f;
+        }
+    }
+    return maxVal;
+}
+/*
+FloatType maxi(py::list myList) {
+    FloatType maxVal = PyFloat_GetMin();
+    const pybind11::detail::list_iterator &v = myList.begin();
+    for(FloatType f:myList) {
+        if(f>maxVal) {
+            maxVal=f;
+        }
+    }
+    return maxVal;
+}
+*/
+
 
 PYBIND11_MODULE(cannopy, m) {
     m.def("add", &add, "add stuff");
+    m.def("max", &maxi, "max", py::arg("list"), py::arg("initMax") );
     m.def("fact", &factorial, "calc factorial of n", py::arg("n"));
 //    m.def("RAM", &factorial, "calc factorial");
     py::class_<RAMNeuron>(m, "RAM")

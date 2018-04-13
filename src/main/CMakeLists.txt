@@ -1,12 +1,14 @@
 
 
-include_directories(${PYTHON_INCLUDE_DIR} ${CMAKE_SOURCE_DIR}/src/main)
+include_directories(${PYTHON_INCLUDE_DIR}  ${CMAKE_SOURCE_DIR}/src/main ${CMAKE_SOURCE_DIR}/src/include)
 
 set(MY_SOURCES "" CACHE INTERNAL "")
 add_subdirectory(numer)
 add_subdirectory(ann)
 add_library(${MY_LIB} SHARED ${MY_SOURCES})
-
+#add_custom_command(TARGET ${MY_LIB}  POST_BUILD
+#        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MY_LIB}> ${PYTHON_DIST_DIR})
+#CMAKE_ARCHIVE_OUTPUT_DIRECTORY
 
 # Link some-other-lib into the new $MY_LIB
 #   (do it now instead of adding link later whenever we use $MY_LIB)
@@ -29,9 +31,9 @@ add_subdirectory(${PYBIND11})
 # Create pybind11 module - note: module name, set up in prev CMakeLists, is same as in PyModule.cpp
 # For <${MY_LIB}.h> used by PyModule.cpp
 include_directories(${CMAKE_SOURCE_DIR}/src/include)
-pybind11_add_module(${MY_PY_MODULE} PyModule.cpp)
-# Link ${MY_LIB} into new module - note the PRIVATE keyword
-target_link_libraries(${MY_PY_MODULE} PRIVATE ${MY_LIB})
+pybind11_add_module(${MY_PY_MODULE} PyModule.cpp ${MY_SOURCES})
+# Link ${MY_LIB} into new Python module - note the PRIVATE keyword
+#target_link_libraries(${MY_PY_MODULE} PRIVATE ${MY_ LIB})
 
 
 # Place the targets in ${TARGET_DIR}
@@ -45,7 +47,8 @@ set_target_properties(${MY_LIB} ${MY_PY_MODULE}
 
 
 # Copy the Python module to the Python distribution dir - you must have permissions to copy to this dir.
-add_custom_command(TARGET ${MY_PY_MODULE} POST_BUILD
+add_custom_command(TARGET ${MY_PY_MODULE}  POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MY_PY_MODULE}> ${PYTHON_DIST_DIR})
 
 
+# install(TARGETS ${MY_PY_MODULE} ${MY_LIB} LIBRARY DESTINATION ${PYTHON_DIST_DIR} ARCHIVE DESTINATION ${PYTHON_DIST_DIR})
