@@ -13,7 +13,8 @@ set(TARGET_DIR ${CMAKE_SOURCE_DIR}/build)
 
 project(cannopy)
 
-set(MY_LIB cannopylLib)
+# Shared library for C++ and tests
+set(MY_LIB CannopylLib)
 # python module name - note: same as used in PyModule.cpp
 set(MY_PY_MODULE cannopy)
 

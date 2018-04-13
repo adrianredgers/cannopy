@@ -3,7 +3,8 @@
 #
 # Create build dir and make the targets
 #
-rm $PYTHON_DIST_LIB/*.so
+PYTHON_MODULE=cannopy
+rm $PYTHON_DIST_LIB/${PYTHON_MODULE}.so
 
 BUILD_DIR=build
 mkdir -p $BUILD_DIR
