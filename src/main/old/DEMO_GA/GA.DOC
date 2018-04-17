@@ -1,0 +1,357 @@
+
+Learning Trading System (LTS) using Neural network trained by GA
+================================================================
+
+Overview - configuration files
+------------------------------ 
+This is a project to implement a trading system shell whose trading 
+decisions are based on predictions made by a neural network (NN).  The 
+neural network is trained using a genetic algorithm. 
+
+The trading system and the neural network are separately specified by 
+two configuration files.  By default these are be called "applic.cfg" 
+and "ga.cfg" respectively. 
+
+
+"applic.cfg"
+------------
+The LTS configuration file "applic.cfg" specifies where the test, train 
+and raw price data is to be found, and how many records of each are to 
+be read. It also specifies the back-prop network configuration file -  
+called "ga.cfg" by default.
+
+A different LTS configuration file can be used by naming it
+as a command line argument ('Options' menu, 'Debug...' item in Visual C). 
+
+
+"ga.cfg"
+--------
+This configuration file specifies the topology of the neural network and 
+the parameters of the genetic algorithm that will train it.
+
+The network configuration filename is passed as a parameter to the 
+functionGAP() by the LTS shell.  If an empty filename is passed then the 
+file "ga.cfg is used by default. 
+
+N.B. the top layer, which is the output layer of the network, is layer 1.
+
+
+Control flow through the program blocks
+---------------------------------------         
+The project has been arranged so that it would be easy to implement the
+trading system shell externally to the neural network predictor -
+the function GA().   
+
+The arguments of GA() are the network input and output arrays, their array 
+sizes, an array of raw prices, the name of a NN configuration file, 
+and a testing/training flag.
+
+The shell takes care of preparing the raw data - windowing it - and 
+analysing the responses of a trained neural network to test data. This
+analysis - calculating a profit and loss account for a trading strategy
+based upon the neural network's predictions - requires raw prices for
+the same period as the test and training data.
+
+As well as loading and preparing data, the shell also performs house-
+keeping duties such as disposing of the data-structures it uses. 
+
+ 
+The LTS application shell
+------------------------- 
+
+main()
+------
+The first task of the shell LTS is to load its configuration file by calling 
+Get_Config(), and to use the information within the file to construct and 
+initialize certain structures for holding the training, testing and price data.
+
+The function Prepare_Data() converts a time-series into a set of windowed slices
+which can be presented directly to the NN. 
+
+Similiarly Prepare_Prices() prepares the arrays of price data: offsetting them by the 
+window-size + prediction delay and selecting points according to the pattern-delay.
+
+The GA() function is called twice by the LTS shell - for training and for testing. 
+
+Finally the various data-structures are disposed of and program execution ends. 
+A memory accounting message is given for debugging purposes.
+
+Get_Config()
+------------
+Get_Config() parses the configuration file and calls Con_DataPairs() to create
+DataPairs data-structures for the training data, test data, training prices, 
+test prices and responses of the neural network.
+ 
+It then loads the data from the files, which were specified in the configuration 
+file, into the allocated space. 
+
+It also creates the DataFormat data-structures which will hold the prepared data
+to be given to the neural network.
+ 
+The results file is opened and closed once to clear it since it will only be 
+appended to.
+
+Prepare_Data()
+--------------
+This function takes a time-series and window characteristics - window-size,
+prediction-delay (number of time-steps ahead that the NN is predicting), 
+pattern-delay (number of time-steps the window moves with each new data-point)
+- and copies them into an array to be presented to a neural network.
+
+
+The neural network predictor
+----------------------------    
+The NN predictor is designed to be separable from the shell program that calls
+it. Requiring the minimum of arguments it should be simple to set up as a DLL 
+for a Microsoft Excel add-in.
+
+GA()
+---- 
+The arguments of GA() are the NN input and output arrays, their array 
+sizes, an array of raw price data, the name of an NN configuration file, 
+and a testing/training flag.
+
+First of all a GenParams data-structure is created to hold parameters for
+the genetic algorithm - such as how the weights are coded and scaled. It
+is also used to pass input and output data arrays to the subroutines of the
+GA predictor.
+
+The NN configuration file is parsed in Get_GA_Configuration(), which also 
+sets up the neural network and genetic algorithm for this run, and checks 
+that the number of neurons in the bottom and top layers of the NN match the 
+number of columns of the input and output arrays.   
+
+Furthermore, Get_GA_Configuration() allocates space for the current
+population of organisms via a call to the function Con_Population().
+
+The function Init_Population() loads up organisms from file.  Any space
+left over in the population is initialized to be random. It evaluates
+their fitnesses and sorts them in order of descending fitness.
+
+During training the output data is preserved because it is repeatedly
+presented to the NN. The actual responses of the NN are lost. 
+During testing the output space is filled with the responses of the NN
+to the input data. 
+
+In an online system the output space would contain undefined values before 
+being passed by the calling LTS shell to GA(). But during developmental 
+sample testing the space is filled with values that the NN was supposed to 
+predict. An RMS difference between actual NN response and the contents of  
+the output space is therefore calculated before the NN response is copied
+into that space.
+
+Finally the weights are saved (even after testing) in the weights file  
+specified in the NN configuration. 
+  
+Get_GA_Configuration()
+----------------------
+This function parses the specified NN configuration file and, using the 
+information in it, constructs NeuralNet and GenAlg data-stuctures and
+loads up the weights by calling Con_NeuralNet() and Con_GenAlg().
+
+The neural network can have any number of layers and nodes within a layer.
+The activation functions of the nodes can be set individually. Bias units
+are either switched on or switched off for the entire network.
+
+The genetic algorithm parameters are: the number of organisms in the 
+population, the number of generations to iterate the GA, an error-limit
+used as a stopping criterion, a mutation probability, and a crossover 
+probability                                              
+
+Con_NeuralNet()
+---------------
+This function allocates space for a NeuralNet structure and initializes it
+according to the given arguments.  
+    
+Train_Net()
+-----------
+This function iterates through generations. For each generation a new
+population is made in three steps: 
+
+	Copying the fittest organisms across. 
+	Creating child organisms by crossover - parents are chosen probabilistically on 
+		their fitness by the function Roulette_Wheel().
+	Randomly generating 'new blood' organisms to prevent inbreeding.
+
+The fitness of each member of the new population is evaluated by 
+Eval_Fitness(). Then the fitnesses are normailzed and sorted.
+
+Eval_Fitness()
+--------------
+If the fitness function is not to minimize RMSE then a call is made to
+Init_Trading() to initialize profit and loss variables and buy/sell 
+signals and positions.
+
+For each training point the input layer of the NN and the desired-output
+array are set to point to the corresponding positions in given data-input
+and data-output arrays.
+
+The input signal is propagated up through the NN by the function Propagate(), 
+which returns a mean squared difference between the actual response of the 
+NN (the contents of layer 1) and the desired response.
+
+If the fitness function is not RMSE then a buy/sell signal is calculated by
+the function Buy_Sell() and Gains_Losses() calculates the effect of this
+trading strategy.
+
+After all of the examples have been presented Summary_P_And_L() calculates
+the totals of the P/L account. Finally, Use_Fitness_Objective() returns the
+fitness according to the specified fitness objective function.
+
+Network Topology
+----------------
+The following can be specified:
+	
+	*	Number of layers in the net and default nodal activation function for the net. 
+	*	Number of nodes in each layer, default activation function for a layer - overriding
+		  default activation function for the net. 
+	*	Nodal activation function for any particular node - overriding default activation
+		  function for the network or for the current layer.   
+	*	Activation functions chosen from: "sigmoid", "tanh", "tanh2" [=2*tanh(x)], 
+		  tanh3" [=3*tanh(x)], "tanh4" [=4*tanh(x)], "step" and "identity".
+	*	Bias units present or not.
+
+	
+Genetic Algorithm
+-----------------
+The following can be specified:
+	
+	*	Mutation probability, crossover probabilty.     
+	*	Fitness objective function chosen from: MIN_RMSE, MAX_PL, 
+			MAX_AVG_PL, MAX_SHARP, MAX_AVG_PL_DD, MAX_ROR
+	*	Stop after a given number of training generations.     
+	*	Stop training when error reaches a minimum limit.
+	*	Initial weights random or else taken from a file of organisms.
+	*	File in which to store weights of organisms after training.
+	
+
+Training and Testing Data
+-------------------------
+The following can be specified:
+
+	*	Window size for time series analysis, step-length (pattern-delay) for window 
+		  movement, number of points ahead (prediction-delay) for prediction.
+	*	File containing training data, number of training records, number of records
+		  to skip over.	
+	*	File containing testing data, number of test records, number of records
+		  to skip over [data-feed format specifier not yet implemented].	
+	*	Number of fields in the data records, number of input fields, number of output
+		  fields if the data is in input-output pairs.
+	*	Price files containing original price data for calculating profit and loss on 
+		  the neural net's trading signals for the training and testing sets.
+
+		In general the trading and test data will be transformations of the price
+		(e.g. scaled log day-return) and so the price-data files allow us to get back
+		to the original price data in order to calculate true profit and loss.		 
+	
+	*	A next-configuration file to chain to when this experiment is finished.
+		This allows several experiments to be performed overnight or over a weekend. 
+		For each experiment/configuration file particular attention should be paid to
+		where the results of the experiment will go - the 'predictions' file; also pay
+		attention to where the weights will come from and where they will be saved.
+		NB It may be worth running each configuration briefly to make sure that it loads
+	  	   and parses correctly.
+
+				  
+Windowing for Time-Series Prediction
+------------------------------------
+If 'window' is specified to be more than zero in the configuration then the neural network
+treats the testing and training data as time series. The bottom layer of the neural net 
+becomes a tapped delay-line of length 'window'. 
+
+At any point in the training data the current record and the previous 'window'-1 records 
+are presented to the network. The data-point 'prediction-delay' records ahead is taken
+as the desired output. 
+
+The window moves along the data-points by 'pattern-delay' units with each step.
+
+If 'pattern-delay and 'prediction-delay' are not specified then they are set to 1 by
+default. 
+
+The number of input neurons in the bottom layer of the net must be specified to  
+be 'window' times the number of data fields in a training record. 
+
+Otherwise, if window is not specified or is specified to be zero, the testing and trainng 
+data files are assumed to contain input and output pairs as data points. In this case the 
+number of input neurons must be the same as the number of input fields in the training data.
+
+
+Source Files:
+-------------       
+calcperf.c				Contains functions to perform and evaluate the trading strategy.
+
+get_conf.c 				Contains function Get_Configuration() to set up the current run 
+						  of the LTS program.
+
+ga_conf.c				Containd Get_GA_Configuration(), to get the NN configuration.
+
+ga_strip.c				Contains the function GA() which operates the neural network 
+						  predictor.
+						  
+setupnn.c 				Contains constructor and destructor functions for the NeuralNet,
+						  DataPairs and GenAlg data-structures.
+
+ga.c					Contains functions for performing the genetic algorithm - 
+						  evaluating fitness, mutation, crossover etc.
+
+ga_main.c				Driver program for the genetic algorithm.
+
+prepare.c				Contains utilities to prepare windowed data in a format that can be
+						  used as arguments to BP().
+
+rnd_sort.c				Random number and quicksort utilities.
+						  
+utils.c					Contains utility functions such as Get_File_Data().
+
+statutil.c				Contains statistics functions.
+
+allocate.c              Contains functions My_Malloc() and My_Free() as memory model independent
+						  versions of malloc() and free().
+
+
+Header files:
+-------------
+g_type.h 				Main header file, must be #include'd in all source files.
+						  Contains typedef' and macros, and calls other #include files.
+						  Contains definitions of all data-structures used.
+
+proto.h                File containing function prototypes. #include'd by "header.h".
+                          The function prototypes are grouped by source file - so this is
+                          also a list of which functions are contained in which source files.
+
+Other files:
+------------
+ga.doc					This documentation file.
+
+applic.cfg				Default LTS configuration file if no command-line argument is given.
+ 
+ga.cfg					Default NN configuration file if not specified.
+
+<configuration files>	Other user specified/created LTS and NN configuration files.
+	
+<training data>			Such as "c:\qtm\data\foo3.dat" and "c:\qtm\data\foo4.dat". User specified.
+                          File containing indicators for training a neural network.
+                        
+<test data> 			File containing indicators for testing the network. User specified.
+
+<training price file> 	Price data for calculating profit and loss on the training set. 
+						  User specified.
+                                                                                        
+<test price file> 		Price data for calculating profit and loss on the test set.
+						  User specified.
+
+<results file> 			File containing statistics and results of the trading strategy.
+						Filename is made from the configuration file: "my_conf.cfg" creates
+						a statistics/results file "my_conf.sta" 
+						
+<weights files>			Weights stored in a file. User specified.					
+
+
+
+
+
+
+
+
+
+
