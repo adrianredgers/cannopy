@@ -28,9 +28,9 @@ set(PYBIND11_PYTHON_VERSION 2.7 CACHE STRING "")
 add_subdirectory(${PYBIND11})
 
 # Create our python module - note: module name, set up in prev CMakeLists, is same as in PyModule.cpp
-# TODO - Don't recompile ${MY_SOURCES}
-pybind11_add_module(${MY_PY_MODULE} PyModule.cpp ${MY_SOURCES})
-
+pybind11_add_module(${MY_PY_MODULE} PyModule.cpp)
+# Link ${MY_LIB} into new module - note the PRIVATE keyword
+target_link_libraries(${MY_PY_MODULE} PRIVATE ${MY_LIB})
 
 # Place the targets in ${TARGET_DIR}
 # Or you can set CMAKE_xxx_OUTPUT_DIRECTORY properties globally in the top level CMakeLists.txt
@@ -45,4 +45,8 @@ set_target_properties(${MY_LIB} ${MY_PY_MODULE}
 # Copy the Python module to the Python distribution dir - you must have permissions to copy to this dir.
 add_custom_command(TARGET ${MY_PY_MODULE}  POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MY_PY_MODULE}> ${PYTHON_DIST_DIR})
+
+# Copy shared lib to $PYTHON_DIST_DIR, which should be on unix $LD_LIBRARY_PATH.
+add_custom_command(TARGET ${MY_LIB}  POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MY_LIB}>  ${PYTHON_DIST_DIR})
 

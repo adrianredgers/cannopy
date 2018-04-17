@@ -10,9 +10,12 @@ Cannopy - ANN in C++ with pybind11 interface to Python
 
 
 **Overview**
-`cannopy` is a C++ pybind1l shared library available to be imported as a module into Python.
- This project builds the Python module `cannopy.so`, and copies it into 
-`$PYTHON_DIST_DIR` so it is available to be imported into Python.
+`cannopy` is a C++ `pybind1l` shared library to be imported as a module into Python.
+ This project builds the Python module `cannopy.so` and shared library `libCannopyLib.so`, and copies them into 
+`$PYTHON_DIST_DIR` so `cannopy` is available as a module to be imported into Python.
+
+For more information / explanation on how to create a C++ python module with `pybind11` see:
+`https://github.com/adrianredgers/cmake-googletest-pybind11-example`
 
 ```
 $ ./compile.sh
@@ -38,24 +41,26 @@ Type "help", "copyright", "credits" or "license" for more information.
 ``` 
 
 **Project targets**
-- `CannopylLib` - creates shared library `libCannopyLib.so`, used by unit tests and available for any other C++.
 - `cannopy` - creates Python (shared library) module `cannopy.so`. Copied to $PYTHON_DIST_DIR.
-    - Currently it compiles `CannopyLib` source files twice - once for `libCannopyLib.so` and oce for `cannopy.so`.
-    - TODO fix it so it only comiles once.
-- `*UnitTests` - executables for running unit tests, these use `libCannopyLib.so`. 
+    - Requires `libCannopyLib.so`.
+- `CannopylLib` - creates shared library `libCannopyLib.so`, used by `cannopy.so`, unit tests and available for any other C++.
+- `*UnitTests` - executables for running unit tests outside of CLion, these use `libCannopyLib.so`. 
 
 
 **Project files**
 - `CMakeLists.txt` - top-level CMake file that calls the `main` and `test` CMake files.
-- `compile.sh` - creates `build` directory, runs `cmake` and then `make`.
+- `compile.sh` 
+    - attempts to add `$PYTHON_DIST_DIR` to `$LD_LIBRARY_PATH`
+    - deletes and recreates `build` directory, 
+    - runs `cmake` and then `make`.
 - `src\include`
-    - Public interfaces for `libCannopyLib.so`, used by tests.
+    - Public interfaces for `libCannopyLib.so`, used by `PyModule.cpp` and by tests.
 - `src/main`
-    - `CMakeLists.txt` - CMake for the main targets: `CannopyLib` and `cannopy`, copies `cannopy.so` to $PYTHON_DIST_DIR.
+    - `CMakeLists.txt` - CMake for the main targets: `CannopyLib` and `cannopy`, copies `cannopy.so` and `libCannopyLib.so` to $PYTHON_DIST_DIR.
     - `Adrian_p.h` - private general include definitions.
     - `PyModule.cpp` - defines interface to our C++ library in the Python module `cannopy.so`.
     - `lib/pybind11` - pybind11 source cloned from: `git@github.com:pybind/pybind11.git`.
-    - <other source directories> 
+    - <any other source directories> 
 - `src/test`
     - `CMakeLists.txt` - top-level CMake for test target: `*UnitTests`.
     - `lib/googletest` - googletest source code.
@@ -68,8 +73,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 
 **Contact me**
-- This is my second attempt at a lot of things - CMake, CLion, googletest, python, pybind11, C++, GitHub, README ml, Licences.
-- I would be grateful for any suggestions:-
-- aredgers@yahoo.com
+- This is my second attempt at a lot of things - CMake, CLion, googletest, python, pybind11, C++, GitHub, README ml etc.
+- I would be grateful for any (non-painful) suggestions:-
+    - aredgers@yahoo.com
         
 
