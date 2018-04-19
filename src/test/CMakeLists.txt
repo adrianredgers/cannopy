@@ -12,13 +12,13 @@ include_directories(${GTEST_ROOT}/googletest/include)
 set(GTEST_LIB gtest_main)
 
 
-
+# NOTE: Call all unit test suites: <xxx>UnitTests so compile.sh can pick them up
 set(UNIT_TESTS topLevelUnitTests)
 
 set(TEST_SOURCES
         AdrianTest.cpp)
 
-# Create new runUnitTests target from test sources and link with ${GTEST}_LIB and ${MY_LIB}
+# Create new UNIT_TESTS target from test sources and link with ${GTEST}_LIB and ${MY_LIB}
 add_executable(${UNIT_TESTS} ${TEST_SOURCES})
 target_link_libraries(${UNIT_TESTS} ${GTEST_LIB} ${MY_LIB})
 

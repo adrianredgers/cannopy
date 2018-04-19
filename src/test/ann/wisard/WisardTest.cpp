@@ -24,7 +24,7 @@ TEST(WisardTest, EmptyNode) {
     UIntType actual = wisard.lookup(retina);
 
     // Then:
-    EXPECT_EQ(0, actual) << "Testing wisard(0,1)";
+    EXPECT_EQ(0, actual) << "Testing empty wisard";
 }
 
 

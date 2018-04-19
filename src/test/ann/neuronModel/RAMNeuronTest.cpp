@@ -61,6 +61,29 @@ TEST(RAMNeuronTest, SetAddressFail) {
     }
 }
 
+
+TEST(RAMNeuronTest, SetContentsFail) {
+    // Given:
+    RAMNeuron ram = RAMNeuron(2);
+    AddressType address;
+    address.push_back(1);
+    address.push_back(0);
+
+    try {
+        // When:
+        ram.set(address, 2);
+
+        FAIL() << "Should throw exception";
+    } catch(invalid_argument e) {
+        // Then:
+        string expected = string("ERROR : arg (contents value) has value (2) that should be between (0) and (1) inclusive");
+        EXPECT_EQ(expected, e.what());
+    } catch(...) {
+        FAIL() << "Should have thrown invalid_argument exception";
+
+    }
+}
+
 TEST(RAMNeuronTest, Reset) {
     // Given:
     RAMNeuron ram = RAMNeuron(2);

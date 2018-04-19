@@ -59,6 +59,7 @@ namespace cannopy {
 
     void RAMNeuronPrivate::set(AddressRef address, UIntType value) {
         Arg("address size").exactly(numInputs).check(address.size());
+        Arg("contents value").min(0).max(1).check(value);
         UIntType addressOffset = getOffset(address);
         contents[addressOffset] = value;
     }

@@ -76,8 +76,9 @@ namespace cannopy {
         AddressType nodeAddress;
         nodeAddress.reserve(arity);
         for (auto &node: nodes) {
+            nodeAddress.clear();
             for (UIntType nodeInput = 0; nodeInput < arity; nodeInput++, ++mappingIter) {
-                nodeAddress[nodeInput] = retina[*mappingIter];
+                nodeAddress.push_back(retina[*mappingIter]);
             }
             node.set(nodeAddress, 1);
 
