@@ -49,6 +49,12 @@ rm -rf $BUILD_DIR/*
 pushd $BUILD_DIR
 cmake ..
 make
+
+for utest in *UnitTests
+do
+    ./$utest
+done
+
 popd
 
 
