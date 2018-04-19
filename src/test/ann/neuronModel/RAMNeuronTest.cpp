@@ -16,14 +16,8 @@ TEST(RAMNeuronTest, EmptyNode) {
     address.push_back(1);
     address.push_back(0);
 
-    cout << "sizeof int = " << sizeof(int) << endl;
-    cout << "sizeof long = " << sizeof(long) << endl;
-    cout << "sizeof float = " << sizeof(float) << endl;
-    cout << "sizeof double = " << sizeof(double) << endl;
-    cout << "sizeof short = " << sizeof(short) << endl;
-    cout << "sizeof char = " << sizeof(char) << endl;
     // When:
-    IntType actual = ram.lookup(address);
+    UIntType actual = ram.lookup(address);
 
     // Then:
     EXPECT_EQ(0, actual) << "Testing RAM(0,1)";
@@ -40,8 +34,31 @@ TEST(RAMNeuronTest, SetAddress) {
     ram.set(address, 1);
 
     // Then:
-    IntType actual = ram.lookup(address);
+    UIntType actual = ram.lookup(address);
     EXPECT_EQ(1, actual) << "Testing RAM(0,1)";
+}
+
+TEST(RAMNeuronTest, SetAddressFail) {
+    // Given:
+    RAMNeuron ram = RAMNeuron(2);
+    AddressType address;
+    address.push_back(1);
+    address.push_back(0);
+    address.push_back(0);
+
+    try {
+        // When:
+        ram.set(address, 1);
+
+        FAIL() << "Should throw exception";
+    } catch(invalid_argument e) {
+        // Then:
+        string expected = string("ERROR : arg (address size) has value (3) that should be (2)");
+        EXPECT_EQ(expected, e.what());
+    } catch(...) {
+        FAIL() << "Should have thrown invalid_argument exception";
+
+    }
 }
 
 TEST(RAMNeuronTest, Reset) {
@@ -56,6 +73,6 @@ TEST(RAMNeuronTest, Reset) {
     ram.reset();
 
     // Then:
-    IntType actual = ram.lookup(address);
+    UIntType actual = ram.lookup(address);
     EXPECT_EQ(0, actual) << "Testing RAM(0,1)";
 }

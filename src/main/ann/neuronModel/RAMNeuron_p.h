@@ -3,24 +3,25 @@
 
 namespace cannopy {
 
+
     class RAMNeuronPrivate {
 
     public:
-        IntType numInputs;
-        IntType numAddresses;
-        IntPtr contents;
+        UIntType numInputs;
+        UIntType numAddresses;
+        UIntVec contents;
 
-        explicit RAMNeuronPrivate(IntType numInputs);
+        explicit RAMNeuronPrivate(UIntType numInputs);
+
         ~RAMNeuronPrivate();
 
         void reset();
-        void reset(IntPtr contents, IntType numAddresses);
 
-        void set(AddressRef address, IntType value);
+        void set(AddressRef address, UIntType value);
 
-        IntType lookup(AddressRef address);
+        UIntType lookup(AddressRef address);
 
-        IntType getOffset(AddressRef address);
+        UIntType getOffset(AddressRef address);
     };
 
 }

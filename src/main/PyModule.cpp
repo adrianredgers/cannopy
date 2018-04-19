@@ -10,7 +10,7 @@ using namespace cannopy;
 
 namespace py = pybind11;
 
-IntType add(IntType a, IntType b) {
+UIntType add(UIntType a, UIntType b) {
     return a + b;
 }
 

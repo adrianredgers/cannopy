@@ -10,7 +10,7 @@
 using namespace std;
 namespace cannopy {
 
-    RAMNeuron::RAMNeuron(IntType numInputs) {
+    RAMNeuron::RAMNeuron(UIntType numInputs) {
         mData = new RAMNeuronPrivate(numInputs);
     }
 
@@ -24,69 +24,55 @@ namespace cannopy {
         }
     }
 
-
-    void RAMNeuron::set(AddressRef address, IntType value) {
+    void RAMNeuron::set(AddressRef address, UIntType value) {
         mData->set(address, value);
     }
 
-    IntType RAMNeuron::lookup(AddressRef address) {
+    UIntType RAMNeuron::lookup(AddressRef address) {
         mData->lookup(address);
     }
 
+    ////////////////////////////////////////////////////////////////////
 
-    RAMNeuronPrivate::RAMNeuronPrivate(IntType numInputs) {
-        if (numInputs < 0 || numInputs > RAMNeuron::MAX_INPUTS) {
-            cerr << "ERROR: Number of inputs " << numInputs << " must be between 0 and " << RAMNeuron::MAX_INPUTS;
-            exit(1);
-        }
+    RAMNeuronPrivate::RAMNeuronPrivate(UIntType numInputs) {
+        Arg("numInputs").min(0).max(RAMNeuron::MAX_INPUTS).check(numInputs);
 
         this->numInputs = numInputs;
-        numAddresses = 1 << numInputs;
-        contents = MALLOC(IntType, numAddresses);
-        if (contents == NULL) {
-            cerr << "ERROR: Could not allocate space for " << numAddresses;
-            cout << "OUT ERROR: Could not allocate space for " << numAddresses;
-            exit(1);
-        }
+        numAddresses = 1u << numInputs;
+        contents.reserve(numAddresses);
 
         reset();
     }
 
     RAMNeuronPrivate::~RAMNeuronPrivate() {
-        BURN(contents, numAddresses);
+        reset();
         numAddresses = 0;
         numInputs = 0;
 
     }
 
     void RAMNeuronPrivate::reset() {
-        if (contents != NULL) {
-            reset(contents, numAddresses);
+        for(UIntType addr = 0; addr<numAddresses;addr++) {
+            contents[addr] = 0;
         }
     }
 
-    void RAMNeuronPrivate::reset(IntPtr contents, IntType numAddresses) {
-        while (numAddresses-- > 0) {
-            *contents++ = 0;
-        }
-    }
-
-    void RAMNeuronPrivate::set(AddressRef address, IntType value) {
-        IntType addressOffset = getOffset(address);
+    void RAMNeuronPrivate::set(AddressRef address, UIntType value) {
+        Arg("address size").exactly(numInputs).check(address.size());
+        UIntType addressOffset = getOffset(address);
         contents[addressOffset] = value;
     }
 
-    IntType RAMNeuronPrivate::lookup(AddressRef address) {
-        IntType addressOffset = getOffset(address);
+    UIntType RAMNeuronPrivate::lookup(AddressRef address) {
+        UIntType addressOffset = getOffset(address);
         return contents[addressOffset];
     }
 
-    IntType RAMNeuronPrivate::getOffset(AddressRef address) {
-        IntType addressOffset = 0;
-        IntType addressSection = 1;
-        for(auto iter = address.begin(); iter != address.end(); ++iter) {
-//            cout << "itesr " << *iter << endl;
-            addressOffset += *iter * addressSection;
+    UIntType RAMNeuronPrivate::getOffset(AddressRef address) {
+        UIntType addressOffset = 0;
+        UIntType addressSection = 1;
+        for (UIntType inputNum=0; inputNum<numInputs; inputNum++) {
+            addressOffset += address[inputNum] * addressSection;
             addressSection <<= 1;
 
         }

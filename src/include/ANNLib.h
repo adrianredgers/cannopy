@@ -11,20 +11,41 @@ namespace cannopy {
     class RAMNeuron {
 
     public:
-        static const IntType MAX_INPUTS = 20;
+        static const UIntType MAX_INPUTS = 20;
 
-        RAMNeuron(IntType numInputs);
+        RAMNeuron(UIntType numInputs);
 
         ~RAMNeuron();
 
         void reset();
 
-        void set(AddressRef address, IntType value);
+        void set(AddressRef address, UIntType value);
 
-        IntType lookup(AddressRef address);
+        UIntType lookup(AddressRef address);
 
     private:
         RAMNeuronPrivate *mData;
+    };
+
+
+    class WisardPrivate;
+
+    class Wisard {
+
+    public:
+
+        Wisard(UIntType numInputs, UIntType coverage, UIntType arity);
+
+        ~Wisard();
+
+        void reset();
+
+        void train(AddressRef retina);
+
+        UIntType lookup(AddressRef retina);
+
+    private:
+        WisardPrivate *mData;
     };
 
 }

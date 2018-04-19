@@ -3,7 +3,7 @@
 include_directories(${CMAKE_SOURCE_DIR}/src/main ${CMAKE_SOURCE_DIR}/src/include)
 
 # Initialize global ${MY_SOURCES}
-set(MY_SOURCES "" CACHE INTERNAL "")
+set(MY_SOURCES Adrian.cpp CACHE INTERNAL "")
 
 # Add new source directories here, each one should have a CMakeLists.txt
 add_subdirectory(numer)

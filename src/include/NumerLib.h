@@ -7,9 +7,9 @@
 
 namespace cannopy {
 
-    FloatType factorial(IntType n);
+    FloatType factorial(UIntType n);
 
-    IntType DEqual(FloatType a, FloatType b);
+    UIntType DEqual(FloatType a, FloatType b);
 
 }
 #endif //CANNOPY_NUMERLIB_H

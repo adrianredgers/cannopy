@@ -5,14 +5,14 @@
 #include "MathUtils.h"
 namespace cannopy {
 
-    FloatType factorial(IntType n, FloatType acc);
+    FloatType factorial(UIntType n, FloatType acc);
 
-    FloatType factorial(IntType n) {
+    FloatType factorial(UIntType n) {
         FloatType fac = factorial(n, 1.0);
         return fac;
     }
 
-    FloatType factorial(IntType n, FloatType acc) {
+    FloatType factorial(UIntType n, FloatType acc) {
         if (n <= 1) {
             return acc;
         } else {
@@ -22,7 +22,7 @@ namespace cannopy {
     }
 
 
-    IntType DEqual(FloatType a, FloatType b) {
+    UIntType DEqual(FloatType a, FloatType b) {
         if (a < b) { return DEqual(b, a); }
         FloatType c = fabs(a);
         return (c <= DTOL) || ((a - b) / c <= DTOL);
