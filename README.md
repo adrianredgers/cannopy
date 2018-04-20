@@ -64,12 +64,16 @@ Type "help", "copyright", "credits" or "license" for more information.
     - Requires `libCannopyLib.so`.
 - `CannopylLib` - creates shared library `libCannopyLib.so`, used by `cannopy.so`, unit tests and available for any other C++.
 - `*UnitTests` - executables for running unit tests outside of CLion, these use `libCannopyLib.so`. 
+- Python looks for modules in `$PYTHONPATH`.
+    - So we need to copy `cannopy.so` to a directory and add that directory to `$PYTHONPATH`
+- If the Python shared library module `cannopy.so` needs another library then that needs to be in `$LD_LIBRARY_PATH`
+    - So we need to copy `libCannopyLib.so` to a directory and add that directory to `$LD_LIBRARY_PATH`
 
 
 **Project files**
 - `CMakeLists.txt` - top-level CMake file that calls the `main` and `test` CMake files.
 - `compile.sh` 
-    - Attempts to add `$PYTHON_DIST_DIR` to `$LD_LIBRARY_PATH`
+    - Shows how to add `$MY_PYTHON_DIST_DIR` to `$PYTHONPATH` and `$LD_LIBRARY_PATH`
     - Deletes and recreates `build` directory. 
     - Runs `cmake` and then `make`.
     - Runs the C++ googletest unit tests
@@ -81,7 +85,7 @@ Type "help", "copyright", "credits" or "license" for more information.
     - `Adrian.cpp` - private general utilities, until I find a better home for them.
     - `PyModule.cpp` - defines interface to our C++ library in the Python module `cannopy.so`.
     - `lib/pybind11` - pybind11 source cloned from: `git@github.com:pybind/pybind11.git`.
-    - <any other source directories> 
+    - <other source directories> 
 - `src/test`
     - `CMakeLists.txt` - top-level CMake for test target: `*UnitTests`.
     - `lib/googletest` - googletest source code.
@@ -96,9 +100,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 **Types**
 
 - `UIntType` is used throughout - it is set to be an `unsigned long`.
-- `AddressType` is a `vector` of `UIntType`, and `AddressRef` is a reference to that.
+- `AddressType` is a `std::vector` of `UIntType`, and `AddressRef` is a reference to that.
     - `AddressType` corresponds to a `list` in Python.
-    - Addresses are binary vectors.
+    - Addresses and retinas are binary vectors.
+    - Addresses and retinas are binary vectors.
     
 
 **RAM Neuron**
