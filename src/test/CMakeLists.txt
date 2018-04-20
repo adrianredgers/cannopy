@@ -12,7 +12,9 @@ include_directories(${GTEST_ROOT}/googletest/include)
 set(GTEST_LIB gtest_main)
 
 
-# NOTE: Call all unit test suites: <xxx>UnitTests so compile.sh can pick them up
+#
+# We haz a top-level unit-test suite
+# NOTE: Call all unit-test suites: <xxx>UnitTests so compile.sh can pick them up
 set(UNIT_TESTS topLevelUnitTests)
 
 set(TEST_SOURCES
@@ -22,16 +24,8 @@ set(TEST_SOURCES
 add_executable(${UNIT_TESTS} ${TEST_SOURCES})
 target_link_libraries(${UNIT_TESTS} ${GTEST_LIB} ${MY_LIB})
 
-# Place the ${UNIT_TESTS} target executable in ${TARGET_DIR}
-set_target_properties(${UNIT_TESTS}
-        PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY ${TARGET_DIR}
-        LIBRARY_OUTPUT_DIRECTORY ${TARGET_DIR}
-        RUNTIME_OUTPUT_DIRECTORY ${TARGET_DIR})
 
-
-
-# Subdirs containing tests
+# Subdirs containing moar tests
 add_subdirectory(numer)
 add_subdirectory(ann)
 
