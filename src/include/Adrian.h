@@ -7,6 +7,7 @@
 
 namespace cannopy {
 
+    typedef signed long IntType;
     typedef unsigned long UIntType;
     typedef UIntType *UIntPtr;
     typedef std::vector<UIntType> UIntVec;

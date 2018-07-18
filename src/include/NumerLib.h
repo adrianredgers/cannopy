@@ -7,7 +7,7 @@
 
 namespace cannopy {
 
-    FloatType factorial(UIntType n);
+    FloatType factorial(IntType n);
 
     UIntType DEqual(FloatType a, FloatType b);
 

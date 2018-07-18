@@ -9,9 +9,9 @@ namespace cannopy {
 #define DTOL    (1.0E-7)
 
 
-    FloatType factorial(UIntType n);
+    FloatType factorial(IntType n);
 
-    UIntType DEqual(FloatType a, FloatType b);
+    bool DEqual(FloatType a, FloatType b);
 
 }
 #endif // CANNOPY_MATH_UTILS_H

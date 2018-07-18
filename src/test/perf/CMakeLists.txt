@@ -1,9 +1,9 @@
 
 # !!! NOTE: compile.sh expects this label to be suffixed with "UnitTests"  !!!
-set(UNIT_TESTS neuronModelUnitTests)
+set(UNIT_TESTS perfUnitTests)
 
 set(TEST_SOURCES
-        RAMNeuronTest.cpp)
+        VectorVsArrayTest.cpp)
 
 # Create new runUnitTests target from test sources and link with ${GTEST}_LIB and ${MY_LIB}
 add_executable(${UNIT_TESTS} ${TEST_SOURCES})

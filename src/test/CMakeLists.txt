@@ -27,6 +27,7 @@ target_link_libraries(${UNIT_TESTS} ${GTEST_LIB} ${MY_LIB})
 
 # Subdirs containing moar tests
 add_subdirectory(numer)
+add_subdirectory(perf)
 add_subdirectory(ann)
 
 

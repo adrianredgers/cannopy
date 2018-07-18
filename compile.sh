@@ -63,7 +63,7 @@ cmake ..
 make
 
 #
-# Run unit tests
+# Run unit tests - !!! NOTE: you need to suffix "UnitTests" in your CMakeLists.txt files. !!!
 #
 RETVAL=0
 for utest in *UnitTests

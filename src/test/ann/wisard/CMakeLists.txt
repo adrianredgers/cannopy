@@ -1,4 +1,5 @@
 
+# !!! NOTE: compile.sh expects this label to be suffixed with "UnitTests"  !!!
 set(UNIT_TESTS wisardlUnitTests)
 
 set(TEST_SOURCES

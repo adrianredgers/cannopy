@@ -11,7 +11,8 @@ TEST(NumericalTest, HappyCase) {
 }
 
 TEST(NumericalTest, Negative) {
-    EXPECT_GT(factorial(-10), 0);
+    FloatType fac = factorial(-10);
+    EXPECT_GT(fac, 0);
 }
 
 TEST(NumericalTest, Near) {

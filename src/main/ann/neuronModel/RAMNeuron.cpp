@@ -48,7 +48,6 @@ namespace cannopy {
         reset();
         numAddresses = 0;
         numInputs = 0;
-
     }
 
     void RAMNeuronPrivate::reset() {
